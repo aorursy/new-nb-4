@@ -568,8 +568,6 @@ for store_id in STORES_IDS:
 
     # to free some hdd space and ram memory
 
-    !rm train_data.bin
-
     del train_data, valid_data, estimator
 
     gc.collect()

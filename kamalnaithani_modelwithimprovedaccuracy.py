@@ -386,10 +386,6 @@ for store_id in STORES_IDS:
 
     pickle.dump(estimator, open(model_name, 'wb'))
 
-
-
-    !rm train_data.bin
-
     del train_data, valid_data, estimator
 
     gc.collect()

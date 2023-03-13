@@ -63,7 +63,6 @@ label = list(train_data.iloc[:,2:].columns)
 for i in range(2,8):
     lr = SGDClassifier(loss='log', penalty='l1', alpha=1e-06)
     y_train = train_data.iloc[:,i]
-    %time lr.fit(X_train_dtm, y_train)
     y_pred_class = lr.predict_proba(X_test_dtm)
     dataframesample[label[i-2]] = (y_pred_class[:,1])
 dataframesample.to_csv('output_hackathon.csv',index=False)

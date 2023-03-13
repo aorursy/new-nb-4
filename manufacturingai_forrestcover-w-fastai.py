@@ -322,8 +322,6 @@ for f in feats:
 
     m=RandomForestClassifier(n_jobs=-1, n_estimators=80, bootstrap=True, oob_score=True, random_state=1)
 
-    %time m.fit(X_train, y_train)
-
     print(f)
 
     print_score(m)

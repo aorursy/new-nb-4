@@ -684,7 +684,6 @@ for seg_id in X_test.index:
     for idx, freq_val in enumerate(freq_i):
 
         X_test.loc[seg_id, 'ffti_{}'.format(idx)] = freq_val
-
     
 
     X_test.loc[seg_id, 'peaks_smooth'] = len(sig.find_peaks(x_smooth)[0])
@@ -703,5 +702,3 @@ submission['time_to_failure'] = svm.predict(X_test_scaled)
 
 submission.to_csv('submission.csv')
 sub = pd.read_csv('submission.csv')
-
-sub[:100]

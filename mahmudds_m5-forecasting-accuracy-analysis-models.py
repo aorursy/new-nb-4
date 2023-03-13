@@ -1,5 +1,4 @@
 from IPython.display import HTML
-HTML('<center><iframe width="700" height="400" src="https://www.youtube.com/embed/bn8rVBuIcFg?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></center>')
 import os
 import gc
 import time
@@ -663,7 +662,6 @@ fig.add_trace(
 
 fig.update_layout(height=1200, width=800, title_text="Exponential smoothing")
 fig.show()
-HTML('<center><iframe width="700" height="400" src="https://www.youtube.com/embed/Y2khrpVo6qI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></center>')
 predictions = []
 for row in tqdm(train_dataset[train_dataset.columns[-30:]].values[:3]):
     fit = sm.tsa.statespace.SARIMAX(row, seasonal_order=(0, 1, 1, 7)).fit()
@@ -728,7 +726,6 @@ fig.add_trace(
 
 fig.update_layout(height=1200, width=800, title_text="ARIMA")
 fig.show()
-HTML('<center><iframe width="700" height="400" src="https://www.youtube.com/embed/95-HMzxsghY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></center>')
 dates = ["2007-12-" + str(i) for i in range(1, 31)]
 predictions = []
 for row in tqdm(train_dataset[train_dataset.columns[-30:]].values[:3]):
@@ -1193,7 +1190,6 @@ for store_id in STORES_IDS:
 
     # Remove temporary files and objects 
     # to free some hdd space and ram memory
-    !rm train_data.bin
     del train_data, valid_data, estimator
     gc.collect()
     
