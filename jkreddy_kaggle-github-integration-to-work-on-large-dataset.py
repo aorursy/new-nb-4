@@ -17,8 +17,6 @@ def load_image_tensor(image_path):
   return tf.convert_to_tensor(
       np.array(PIL.Image.open(image_path).convert('RGB')))
 
-def to_hex(image_id) -> str:
-  return '{0:0{1}x}'.format(image_id, 16)
 
 def get_image_path(subset, image_id):
   name = to_hex(image_id)
@@ -35,7 +33,6 @@ def get_repo(username="uname",password="pass"):
     # get the authenticated user
     user = g.get_user()
     repos = user.get_repos()
-    !git config --global user.email "XXXXX@gmail.com"
     return(repos[0]) #return the first available repo, change index as per your needs
 import csv
 ImgPerClass_columns = ['imagecount','path']
@@ -135,7 +132,6 @@ def create_tarzip(directory_to_tar,tarfilename):
 #get all tar files
 #untar and mege folders, similar to original dataset
 def get_tarzip_from_repo(repo):
-    !git clone https://github.com/jkreddy123/gld.git
     basedirpath = "/kaggle/working/gld"
     tar_paths = [x for x in pathlib.Path(basedirpath).rglob('*.tar.gz')]
     for tar_path in tar_paths:
@@ -161,7 +157,6 @@ def plot_images(image_paths,samples_to_plot):
     plt.show()
     plt.close()
 def delete_files_in_repo(repo):
-    !git clone https://github.com/jkreddy123/gld.git
     basedirpath = "/kaggle/working/gld"
     if(upload_tar_or_plainImages == False):
         image_paths = [x for x in pathlib.Path(basedirpath).rglob('*.jpg')]
